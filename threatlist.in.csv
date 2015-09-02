@@ -1,0 +1,12 @@
+Name,URL,Category,sev
+emerging_threats_compromised_ip_blocklist,http://rules.emergingthreats.net/blockrules/compromised-ips.txt,ip,H:Compromised_IP
+palevo_ip_blocklist,https://palevotracker.abuse.ch/blocklists.php?download=ipblocklist,ip,H:C&C
+iblocklist_web_attacker,http://list.iblocklist.com/?list=ghlzqtqxnzctvvajwwag,range,H:AttackerIP
+zeus_bad_ip_blocklist,https://zeustracker.abuse.ch/blocklist.php?download=badips,ip,H:C&C
+emerging_threats_ip_blocklist,http://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt,ip,M:Blocklist
+sans,http://isc.sans.edu/block.txt,col,M:Blocklist
+zeus_standard_ip_blocklist,https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist,ip,M:Blocklist
+malc0de.com,http://malc0de.com/bl/IP_Blacklist.txt,ip,M:Blocklist
+iblocklist_proxy,http://list.iblocklist.com/?list=xoebmbyexwuiogmbyprb,range,L:TOR
+iblocklist_spyware,http://list.iblocklist.com/?list=bt_spyware,range,H:Spyware
+iblocklist_tor,http://list.iblocklist.com/?list=tor,range,L:TOR
