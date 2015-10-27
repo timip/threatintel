@@ -102,7 +102,7 @@ def extractField(name, category, input, sev):
 def readThreatlist():
         global success
         try:
-                threatlist =  open('./threatlist.in.csv', 'rU')
+                threatlist =  open(procDir + '/threatlist.in.csv', 'rU')
                 next(threatlist, None) #skip the headers
                 for line in threatlist :
                         cells = line.split(",")
@@ -127,7 +127,7 @@ def readThreatlist():
 
 def readcustomlist():
         try:
-                customlist = open('./customlist.csv','rU')
+                customlist = open(procDir + '/customlist.csv','rU')
                 next(customlist, None)
                 for line in customlist :
                         tf_output.write(line)
