@@ -59,10 +59,12 @@ def extractField(name, category, input, sev):
                                 continue
                         elif "#" in line.strip():
                                 continue
-			elif "/" in line.strip():
+                        elif line.strip().startswith("/"):
+                                continue
+                        elif "/" in line.strip():
                                 tf_output.write(line.strip() + "," + name + "(" + sev + ")\n")
-			else:
-				tf_output.write(line.strip() + "/32," + name + "(" + sev + ")\n")
+                        else:
+                                tf_output.write(line.strip() + "/32," + name + "(" + sev + ")\n")
                 logging("Extract Field Complete: name=" + name + " category=" + category + " sev=" + sev)
         elif category == 'range':
                 for line in StringIO(input):
@@ -108,14 +110,17 @@ def readThreatlist():
                         cells = line.split(",")
                         try:
                                 req = requests.get(cells[1], allow_redirects=True)
+                                if req.status_code != requests.codes.ok:
+                                    print cells[0] + ": Did not download. Received " + str(req.status_code) + " error."
+                                    continue
                                 formatter(cells[0], cells[2], cells[3], req.content)
                                 req = None
                         except requests.exceptions.ConnectionError as e:
                                 print 'Request failed Error: ' + str(e)
                                 logging("Request failed Error: " + str(e))
-                                threatlist+=e+","
-			except IndexError as ie:
-				print 'Skip line: ' + cells
+                                # threatlist+=e+","
+                        except IndexError as ie:
+                                print 'Skip line: ' + cells
                         time.sleep(3)
                 threatlist.close()
                 logging("Read Threat list Success")
